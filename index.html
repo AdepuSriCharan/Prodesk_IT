@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Prodesk IT is a digital agency helping brands grow through web development, SEO, and performance marketing."
+    />
+    <title>Prodesk IT | Digital Agency</title>
+
+    <script>
+      (function () {
+        var savedTheme = localStorage.getItem("theme");
+        if (
+          savedTheme === "dark" ||
+          (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class"
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+    <header class="site-header">
+      <nav class="page-shell top-nav" aria-label="Main navigation">
+        <a href="#home" class="brand">
+          <img src="./assets/logo.jpeg" alt="Prodesk IT logo" class="brand-logo" />
+          <span>Prodesk IT</span>
+        </a>
+
+        <button
+          id="menu-toggle"
+          class="menu-btn"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Toggle menu"
+        >
+          Menu
+        </button>
+
+        <div class="desktop-nav">
+          <a class="nav-link" href="#home">Home</a>
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <button id="theme-toggle" type="button" class="theme-btn" aria-label="Toggle dark mode">Dark Mode</button>
+        </div>
+      </nav>
+
+      <div id="mobile-menu" class="page-shell mobile-menu">
+        <div class="mobile-links">
+          <a class="mobile-nav-link" href="#home">Home</a>
+          <a class="mobile-nav-link" href="#about">About</a>
+          <a class="mobile-nav-link" href="#services">Services</a>
+          <a class="mobile-nav-link" href="#contact">Contact</a>
+          <button id="theme-toggle-mobile" type="button" class="theme-btn" aria-label="Toggle dark mode">Dark Mode</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-bg"></div>
+
+        <div class="page-shell hero-grid">
+          <div>
+            <p class="mb-4 inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 dark:border-blue-800/40 dark:bg-blue-900/20 dark:text-blue-100">
+              Digital Marketing Agency
+            </p>
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">We Build Digital Experiences That Grow Your Business</h1>
+            <p class="mt-5 max-w-xl text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+              Prodesk IT helps startups and brands scale with conversion-focused websites, SEO strategy, and performance campaigns.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#contact" class="btn-primary">Get Started</a>
+              <a href="#services" class="btn-secondary">View Services</a>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <img src="./assets/laptop.webp" alt="Laptop showing digital analytics dashboard" class="hero-img" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="page-shell section-wrap">
+        <h2 class="text-3xl font-bold tracking-tight">About Prodesk IT</h2>
+        <p class="mt-4 max-w-3xl text-slate-700 dark:text-slate-300">
+          Prodesk IT is a full-service digital agency that helps businesses build a strong online presence through modern websites, search visibility, and performance-driven marketing. We combine strategic planning, clean UI design, and technical execution to create digital solutions that are fast, scalable, and user-focused.
+        </p>
+        <p class="mt-3 max-w-3xl text-slate-700 dark:text-slate-300">
+          Our goal is not just to launch a website, but to deliver measurable business outcomes such as higher engagement, better lead quality, and improved conversion rates. From idea to execution, we focus on clarity, consistency, and long-term growth.
+        </p>
+      </section>
+
+      <section id="services" class="page-shell" style="padding-bottom: 5rem;">
+        <h2 class="text-3xl font-bold tracking-tight">Our Services</h2>
+        <p class="mt-4 text-slate-700 dark:text-slate-300">Everything you need to build, market, and scale online.</p>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <h3 class="text-xl font-semibold">SEO Optimization</h3>
+            <p class="mt-3 text-slate-700 dark:text-slate-300">Rank higher on search engines with technical SEO, keyword strategy, and on-page improvements.</p>
+          </article>
+
+          <article class="service-card">
+            <h3 class="text-xl font-semibold">Web Development</h3>
+            <p class="mt-3 text-slate-700 dark:text-slate-300">Fast, responsive, and conversion-focused websites built for modern customer journeys.</p>
+          </article>
+
+          <article class="service-card">
+            <h3 class="text-xl font-semibold">Performance Marketing</h3>
+            <p class="mt-3 text-slate-700 dark:text-slate-300">Run profitable campaigns on Google and social platforms with clear ROI tracking.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="cta-band">
+        <div class="page-shell flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+          <div>
+            <h2 class="text-3xl font-bold tracking-tight">Ready to grow your brand?</h2>
+            <p class="mt-3 text-slate-700 dark:text-slate-300">Let's build your next digital success story together.</p>
+          </div>
+          <a href="mailto:hello@prodeskit.com" class="btn-primary">Contact Us</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="page-shell footer-grid">
+        <div>
+          <h3 class="footer-brand">Prodesk IT</h3>
+          <p class="footer-text">
+            Digital solutions that combine design, strategy, and measurable growth.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="#home" class="social-link">Home</a>
+            <a href="#about" class="social-link">About</a>
+            <a href="#services" class="social-link">Services</a>
+            <a href="#contact" class="social-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Connect</h4>
+          <div class="footer-links" aria-label="Social links">
+            <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" class="social-link" aria-label="Twitter">Twitter</a>
+            <a href="mailto:hello@prodeskit.com" class="social-link">hello@prodeskit.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="page-shell">
+          <p>© <span id="year"></span> Prodesk IT. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
