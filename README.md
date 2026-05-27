@@ -1,31 +1,23 @@
-# Prodesk IT - Week 1 Level 3 Assignment
+# Prodesk IT Internship Assignments
 
-This project is a responsive landing page for a fictional digital marketing agency named Prodesk IT.
+This repository is organized sprint-wise for clean review and submission.
 
-## What I implemented
+## Repository Structure
 
-- Tailwind CSS based layout
-- Sticky glassmorphism navbar
-- Dark mode toggle using JavaScript
-- Responsive design for desktop and mobile
-- Hover micro-interactions for buttons and service cards
+- `sprint-01-landing-page/` -> Sprint 01 (Landing Page)
+- `sprint-02-cash-flow/` -> Sprint 02 (Cash-Flow Salary & Expense Tracker)
 
-## Project files
+## Live Deployments
 
-- `index.html` - page structure
-- `styles.css` - custom styles and micro-interactions
-- `script.js` - dark mode + mobile menu logic
-- `Prompts.md` - AI prompts used
-- `script.md` - video explanation script
+- Sprint 01: https://pro-desk-sigma.vercel.app/
+- Sprint 02: https://sprint-02-cash-flow.vercel.app/
 
-## How to run
+## Sprint Readmes
 
-Open `index.html` in a browser.
+- Sprint 01 details: `sprint-01-landing-page/README.md`
+- Sprint 02 details: `sprint-02-cash-flow/README.md`
 
-## Submission checklist
+## Notes
 
-- [x] Public GitHub repository
-- [x] Screenshot added
-- [x] Live URL (Netlify/Vercel): https://pro-desk-sigma.vercel.app/
-- [x] 2-minute demo video
-- [x] Google Form submission
+- Prompts used for each sprint are documented in each sprint folder.
+- Each sprint is isolated for easier QA, grading, and deployment.

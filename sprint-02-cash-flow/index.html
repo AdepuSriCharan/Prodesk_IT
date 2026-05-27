@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cash-Flow | Salary & Expense Tracker</title>
+    <meta
+      name="description"
+      content="Cash-Flow module for Sprint 02: salary, expense tracking, persistence, chart, and report export."
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-slate-100 text-slate-900">
+    <header class="bg-slate-900 text-white">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <h1 class="text-xl font-bold">Cash-Flow Tracker</h1>
+        <span class="rounded-md bg-slate-700 px-3 py-1 text-xs font-medium">Sprint 02</span>
+      </div>
+    </header>
+
+    <main class="mx-auto grid max-w-6xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-3 lg:px-8">
+      <section class="space-y-4 lg:col-span-1">
+        <div class="card">
+          <h2 class="mb-4 text-lg font-semibold">Salary Setup</h2>
+          <form id="salary-form" class="space-y-3" novalidate>
+            <div>
+              <label for="salary-input" class="block text-sm font-medium text-slate-700">Total Salary</label>
+              <input id="salary-input" type="number" min="0" step="0.01" class="input" placeholder="e.g. 50000" />
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Set Salary</button>
+            <button id="clear-salary" type="button" class="btn btn-danger w-full">Clear Salary & Reset</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2 class="mb-4 text-lg font-semibold">Add Expense</h2>
+          <form id="expense-form" class="space-y-3" novalidate>
+            <div>
+              <label for="expense-name" class="block text-sm font-medium text-slate-700">Expense Name</label>
+              <input id="expense-name" type="text" class="input" placeholder="e.g. Rent" />
+            </div>
+            <div>
+              <label for="expense-amount" class="block text-sm font-medium text-slate-700">Expense Amount</label>
+              <input id="expense-amount" type="number" min="0" step="0.01" class="input" placeholder="e.g. 12000" />
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Add Expense</button>
+          </form>
+        </div>
+
+        <div class="card space-y-3">
+          <h2 class="text-lg font-semibold">Utilities</h2>
+          <div class="grid grid-cols-2 gap-2">
+            <button id="currency-inr" class="btn btn-secondary" type="button">INR</button>
+            <button id="currency-usd" class="btn btn-secondary" type="button">USD</button>
+          </div>
+          <button id="download-report" class="btn btn-secondary w-full" type="button">Download Report (PDF)</button>
+        </div>
+      </section>
+
+      <section class="space-y-4 lg:col-span-2">
+        <div id="alert-banner" class="hidden rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          Critical Alert: Remaining balance is below 10% of total salary.
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+          <article class="card">
+            <p class="text-sm text-slate-600">Total Salary</p>
+            <p id="salary-display" class="mt-2 text-2xl font-bold">INR 0.00</p>
+          </article>
+          <article class="card">
+            <p class="text-sm text-slate-600">Total Expenses</p>
+            <p id="expense-display" class="mt-2 text-2xl font-bold">INR 0.00</p>
+          </article>
+          <article class="card">
+            <p class="text-sm text-slate-600">Remaining Balance</p>
+            <p id="balance-display" class="mt-2 text-2xl font-bold">INR 0.00</p>
+          </article>
+        </div>
+
+        <div class="card">
+          <h2 class="mb-4 text-lg font-semibold">Expense List</h2>
+          <ul id="expense-list" class="space-y-2"></ul>
+          <p id="empty-state" class="text-sm text-slate-500">No expenses added yet.</p>
+        </div>
+
+        <div class="card">
+          <h2 class="mb-4 text-lg font-semibold">Visualization</h2>
+          <div class="chart-wrap">
+            <canvas id="expense-chart" aria-label="Expense vs remaining balance pie chart"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="error-popup" class="error-popup hidden" role="alert" aria-live="assertive">
+      <p id="error-popup-message" class="error-popup-text"></p>
+      <button id="error-popup-close" type="button" class="error-popup-close" aria-label="Close error popup">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
